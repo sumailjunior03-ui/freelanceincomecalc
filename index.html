@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Freelance Income Calculator — Hourly Rate &amp; Annual Gross | FreelanceIncomeCalc.com</title>
+<meta content="Convert your freelance hourly rate to annual, monthly, and weekly gross income. Enter hours per week and weeks per year. Runs entirely in your browser." name="description"/>
+<link rel="canonical" href="https://freelanceincomecalc.com/"/>
+<link href="styles.css" rel="stylesheet"/>
+<meta name="google-adsense-account" content="ca-pub-7744853829365165" />
+<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7744853829365165"></script>
+</head>
+<body class="page-wrap">
+<header class="site-header">
+<div class="container">
+<a class="site-logo" href="/">Freelance<span>Income</span>Calc</a>
+<nav aria-label="Main navigation" class="site-nav">
+<a class="active" href="/">Home</a>
+<a href="/faq">FAQ</a>
+<a href="/legal">Legal</a>
+<a href="/privacy">Privacy</a>
+<a href="/contact">Contact</a>
+</nav>
+</div>
+</header>
+<div class="container">
+<div aria-hidden="true" class="ad-slot ad-slot-top"></div>
+</div>
+<main>
+<section class="tool-hero">
+<div class="container">
+<h1>Your freelance income, <em>calculated</em></h1>
+<p>Enter your hourly rate (or annual gross) plus working hours to see your gross income across every time period. Runs locally — no data sent anywhere.</p>
+<div class="badge-row">
+<span class="badge">Hourly → Annual</span>
+<span class="badge">Annual → Hourly</span>
+<span class="badge">Monthly &amp; Weekly</span>
+<span class="badge">Gross Only</span>
+</div>
+</div>
+</section>
+<div class="container">
+<div class="calc-card">
+<h2 class="calc-card-title">Calculate Your Gross Income</h2>
+<div class="error-banner" id="error-banner" role="alert" style="display:none;"></div>
+<div aria-label="Calculation mode" class="mode-toggle" role="group">
+<input checked="" id="mode-hourly" name="calc-mode" type="radio" value="hourly"/>
+<label for="mode-hourly">Hourly → Annual</label>
+<input id="mode-annual" name="calc-mode" type="radio" value="annual"/>
+<label for="mode-annual">Annual → Hourly</label>
+</div>
+<form id="calc-form" novalidate="">
+<div class="form-grid">
+<div class="section-sep">Your Rate</div>
+<div class="field full" id="row-hourly">
+<label for="hourly-rate">Hourly Rate <span class="req">*</span></label>
+<div class="input-wrap">
+<span class="pfx">$</span>
+<input autocomplete="off" class="dfmt" id="hourly-rate" inputmode="decimal" placeholder="e.g. 50" type="text"/>
+</div>
+<span class="field-hint">Your standard billing rate per hour.</span>
+<span class="field-error" id="hourly-rate-err" role="alert"></span>
+</div>
+<div class="field full" id="row-annual" style="display:none;">
+<label for="annual-gross">Annual Gross <span class="req">*</span></label>
+<div class="input-wrap">
+<span class="pfx">$</span>
+<input autocomplete="off" class="dfmt" id="annual-gross" inputmode="decimal" placeholder="e.g. 96,000" type="text"/>
+</div>
+<span class="field-hint">Your target total gross revenue for the year.</span>
+<span class="field-error" id="annual-gross-err" role="alert"></span>
+</div>
+<div class="section-sep">Working Time</div>
+<div class="field">
+<label for="hours-per-week">Hours per Week <span class="req">*</span></label>
+<input autocomplete="off" class="dfmt" id="hours-per-week" inputmode="decimal" placeholder="40" type="text"/>
+<span class="field-hint">Billable hours you work per week.</span>
+<span class="field-error" id="hours-per-week-err" role="alert"></span>
+</div>
+<div class="field">
+<label for="weeks-per-year">Weeks per Year <span class="req">*</span></label>
+<input autocomplete="off" class="dfmt" id="weeks-per-year" inputmode="decimal" placeholder="48" type="text"/>
+<span class="field-hint">Working weeks (e.g. 48 leaves 4 for vacation).</span>
+<span class="field-error" id="weeks-per-year-err" role="alert"></span>
+</div>
+</div>
+<div class="btn-row">
+<button class="btn-primary" type="submit">Calculate →</button>
+<button class="btn-secondary" id="reset-btn" type="button">Reset</button>
+</div>
+</form>
+</div>
+<!-- SPONSOR SLOT (hidden when inactive) -->
+<div aria-hidden="true" class="sponsor-slot"></div>
+<!-- RESULTS -->
+<section aria-live="polite" id="results" style="display:none;">
+<h2 class="results-heading">Your Gross Income Estimate</h2>
+<div class="rate-banner">
+<div class="banner-col">
+<div class="rbl">Hourly Rate</div>
+<div class="rate-big" id="out-hourly">—</div>
+<div class="rate-sub">per hour</div>
+</div>
+<div class="banner-col">
+<div class="rbl">Annual Gross</div>
+<div class="monthly-val" id="out-annual">—</div>
+</div>
+<div class="banner-col">
+<div class="rbl">Monthly Gross</div>
+<div class="monthly-val" id="out-monthly">—</div>
+</div>
+</div>
+<div class="summary-grid">
+<div class="s-card">
+<div class="sl">Weekly Gross</div>
+<div class="sv" id="out-weekly">—</div>
+</div>
+<div class="s-card accent">
+<div class="sl">Est. Quarterly</div>
+<div class="sv" id="out-quarterly">—</div>
+</div>
+<div class="s-card">
+<div class="sl">Working Hours</div>
+<div class="sv" id="out-hours">—</div>
+</div>
+</div>
+<p class="results-meta" id="out-meta"></p>
+<div class="btn-row" style="margin-bottom:16px;">
+<button class="btn-copy" id="copy-btn" type="button">Copy Result</button>
+</div>
+<p class="disclaimer">Gross estimates only. No taxes, deductions, or benefits are modeled. Verify income and tax obligations with a qualified professional or official sources.</p>
+<div aria-hidden="true" class="ad-slot ad-slot-bottom"></div>
+</section>
+</div>
+</main>
+<footer class="site-footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-col">
+<h4>FreelanceIncomeCalc</h4>
+<p>Convert freelance hourly rates to annual, monthly, and weekly gross income. All calculations run locally in your browser. No data collected or stored.</p>
+<br/>
+<a href="/">Calculator</a>
+<a href="/faq">FAQ</a>
+<a href="/legal">Legal</a>
+<a href="/privacy">Privacy</a>
+<a href="/contact">Contact</a>
+</div>
+<div class="footer-col">
+<h4>Related Tools</h4>
+<ul class="related-tools" id="footer-network"></ul>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© 2026 FreelanceIncomeCalc.com — Gross estimates only. No tax advice.</span>
+<span>Partnerships: <a href="mailto:partnerships@calc-hq.com">partnerships@calc-hq.com</a></span>
+</div>
+<p class="footer-disclaimer">This tool provides gross income estimates for informational purposes only. It does not account for taxes, deductions, or any other financial obligations. Always verify with official sources or a qualified professional. Third-party advertisements on this site may use cookies; see our <a href="/privacy">Privacy Policy</a>.</p>
+</div>
+</footer>
+<script src="config.js"></script>
+<script src="network.js"></script>
+<script src="ads.js"></script>
+<script src="app.js"></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderNetworkLinks("footer-network");});</script>
+</body>
+</html>
