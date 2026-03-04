@@ -26,9 +26,9 @@ function fmtRate(n) {
 
 /* ── CALC ENGINE ── */
 function calcFromHourly(hourlyRate, hoursPerWeek, weeksPerYear) {
-  var annualGross   = hourlyRate * hoursPerWeek * weeksPerYear;
-  var monthlyGross  = annualGross / 12;
-  var weeklyGross   = annualGross / 52;
+  var weeklyGross    = hourlyRate * hoursPerWeek;
+  var annualGross    = weeklyGross * weeksPerYear;
+  var monthlyGross   = annualGross / 12;
   var quarterlyGross = annualGross / 4;
   return {
     hourlyRate:     hourlyRate,
