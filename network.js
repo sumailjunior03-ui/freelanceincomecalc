@@ -6,7 +6,6 @@ var FIC_NETWORK = [
   { label: "BankCutoffChecker.com",    url: "https://bankcutoffchecker.com" },
   { label: "SalaryVsInflation.com",    url: "https://salaryvsinflation.com" },
   { label: "hourly2salarycalc.com",    url: "https://hourly2salarycalc.com" },
-  { label: "TokenToDollarMargin.com",  url: "https://tokentodollarmargin.com" },
   { label: "PayrollDateChecker.com",   url: "https://payrolldatechecker.com" },
   { label: "1099vsw2calc.com",         url: "https://1099vsw2calc.com" },
   { label: "FreelanceIncomeCalc.com",  url: "https://freelanceincomecalc.com" }
