@@ -9,7 +9,8 @@ var FIC_NETWORK = [
   { label: "PayrollDateChecker.com",   url: "https://payrolldatechecker.com" },
   { label: "1099vsw2calc.com",         url: "https://1099vsw2calc.com" },
   { label: "FreelanceIncomeCalc.com",  url: "https://freelanceincomecalc.com" },
-  { label: "QuarterlyTaxCalc.com",    url: "https://quarterlytaxcalc.com" }
+  { label: "QuarterlyTaxCalc.com",    url: "https://quarterlytaxcalc.com" },
+  { label: "TotalCompCalc.com",       url: "https://totalcompcalc.com" }
 ];
 
 function renderNetworkLinks(containerId) {
