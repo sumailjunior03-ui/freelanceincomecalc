@@ -12,8 +12,7 @@ var FIC_NETWORK = [
   { label: "QuarterlyTaxCalc.com",    url: "https://quarterlytaxcalc.com" },
   { label: "TotalCompCalc.com",       url: "https://totalcompcalc.com" },
   { label: "OvertimePayCalc.com",    url: "https://overtimepaycalc.com" },
-  { label: "AfterTaxSalaryCalc.com", url: "https://aftertaxsalarycalc.com" },
-  { label: "TakeHomePayCalc.com",   url: "https://takehomepaycalc.com" }
+  { label: "AfterTaxSalaryCalc.com", url: "https://aftertaxsalarycalc.com" }
 ];
 
 function renderNetworkLinks(containerId) {
