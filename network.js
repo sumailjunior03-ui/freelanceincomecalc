@@ -10,7 +10,10 @@ var FIC_NETWORK = [
   { label: "1099vsw2calc.com",         url: "https://1099vsw2calc.com" },
   { label: "FreelanceIncomeCalc.com",  url: "https://freelanceincomecalc.com" },
   { label: "QuarterlyTaxCalc.com",    url: "https://quarterlytaxcalc.com" },
-  { label: "TotalCompCalc.com",       url: "https://totalcompcalc.com" }
+  { label: "TotalCompCalc.com",       url: "https://totalcompcalc.com" },
+  { label: "OvertimePayCalc.com",    url: "https://overtimepaycalc.com" },
+  { label: "AfterTaxSalaryCalc.com", url: "https://aftertaxsalarycalc.com" },
+  { label: "TakeHomePayCalc.com",   url: "https://takehomepaycalc.com" }
 ];
 
 function renderNetworkLinks(containerId) {
