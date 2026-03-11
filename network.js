@@ -1,18 +1,10 @@
 "use strict";
 
 var FIC_NETWORK = [
-  { label: "Calc-HQ",                  url: "https://calc-hq.com" },
-  { label: "BizDayChecker.com",        url: "https://bizdaychecker.com" },
-  { label: "BankCutoffChecker.com",    url: "https://bankcutoffchecker.com" },
-  { label: "SalaryVsInflation.com",    url: "https://salaryvsinflation.com" },
-  { label: "hourly2salarycalc.com",    url: "https://hourly2salarycalc.com" },
-  { label: "PayrollDateChecker.com",   url: "https://payrolldatechecker.com" },
-  { label: "1099vsw2calc.com",         url: "https://1099vsw2calc.com" },
-  { label: "FreelanceIncomeCalc.com",  url: "https://freelanceincomecalc.com" },
-  { label: "QuarterlyTaxCalc.com",    url: "https://quarterlytaxcalc.com" },
+  { label: "Calc-HQ",                 url: "https://calc-hq.com" },
+  { label: "hourly2salarycalc.com",   url: "https://hourly2salarycalc.com" },
   { label: "TotalCompCalc.com",       url: "https://totalcompcalc.com" },
-  { label: "OvertimePayCalc.com",    url: "https://overtimepaycalc.com" },
-  { label: "AfterTaxSalaryCalc.com", url: "https://aftertaxsalarycalc.com" }
+  { label: "AfterTaxSalaryCalc.com",  url: "https://aftertaxsalarycalc.com" }
 ];
 
 function renderNetworkLinks(containerId) {
