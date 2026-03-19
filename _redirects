@@ -1,4 +1,5 @@
-/faq.html       /faq        301
-/legal.html     /legal      301
-/privacy.html   /privacy    301
-/contact.html   /contact    301
+/faq        /faq.html       200
+/legal      /legal.html     200
+/privacy    /privacy.html   200
+/contact    /contact.html   200
+/about      /about.html     200

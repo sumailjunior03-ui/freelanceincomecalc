@@ -6,38 +6,52 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>FAQ | FreelanceIncomeCalc.com</title>
 <meta content="Frequently asked questions about the FreelanceIncomeCalc tool, how gross income is calculated, and what the estimates include and exclude." name="description"/>
-<meta name="robots" content="index, follow" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="FAQ | FreelanceIncomeCalc.com" />
-<meta property="og:description" content="Frequently asked questions about the FreelanceIncomeCalc tool, how gross income is calculated, and what the estimates include and exclude." />
-<meta property="og:url" content="https://freelanceincomecalc.com/faq" />
-<link rel="canonical" href="https://freelanceincomecalc.com/faq"/>
+<link href="https://freelanceincomecalc.com/faq" rel="canonical"/>
+<meta name="robots" content="index, follow"/>
+<meta name="google-adsense-account" content="ca-pub-7744853829365165"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="FAQ | FreelanceIncomeCalc.com"/>
+<meta property="og:description" content="Frequently asked questions about the FreelanceIncomeCalc tool, how gross income is calculated, and what the estimates include and exclude."/>
+<meta property="og:url" content="https://freelanceincomecalc.com/faq"/>
+<meta property="og:site_name" content="FreelanceIncomeCalc.com"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="FAQ | FreelanceIncomeCalc.com"/>
+<meta name="twitter:description" content="Frequently asked questions about the FreelanceIncomeCalc tool, how gross income is calculated, and what the estimates include and exclude."/>
 <link href="styles.css" rel="stylesheet"/>
-<meta name="google-adsense-account" content="ca-pub-7744853829365165" />
 <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7744853829365165"></script>
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@type": "WebApplication",
- "name": "Freelance Income Calculator",
- "url": "https://freelanceincomecalc.com/",
- "applicationCategory": "FinanceApplication",
- "operatingSystem": "All",
- "description": "Online freelance income calculator that estimates hourly, weekly, monthly, and annual freelance earnings based on hourly rates and working hours."
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does this calculator do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It converts a freelance hourly rate into annual, monthly, weekly, and estimated quarterly gross income based on the hours per week and working weeks per year you provide. It also runs in reverse using an annual gross target."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does gross mean here?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gross income is total revenue before taxes, deductions, business expenses, insurance, or retirement contributions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data saved anywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All calculations run entirely in your browser and no input data is transmitted or stored."
+      }
+    }
+  ]
 }
 </script>
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@type": "FAQPage",
- "mainEntity": [
-  { "@type": "Question", "name": "What does this calculator do?", "acceptedAnswer": { "@type": "Answer", "text": "It converts a freelance hourly rate into annual, monthly, weekly, and estimated quarterly gross income based on hours per week and working weeks per year." } },
-  { "@type": "Question", "name": "What does gross mean here?", "acceptedAnswer": { "@type": "Answer", "text": "Gross income is your total revenue before any taxes or deductions. The calculator does not subtract self-employment tax, federal income tax, or any other expenses." } },
-  { "@type": "Question", "name": "Is my data saved anywhere?", "acceptedAnswer": { "@type": "Answer", "text": "No. All calculations run entirely in your browser. No input data is transmitted to any server or stored in any form." } },
-  { "@type": "Question", "name": "Can I use this to plan my taxes?", "acceptedAnswer": { "@type": "Answer", "text": "No. These figures are gross estimates only and are not suitable for tax planning. Consult a qualified tax professional or official IRS resources." } }
- ]
-}
-</script>
+<link rel="icon" href="favicon.svg">
 </head>
 <body class="page-wrap">
 <header class="site-header">
@@ -45,6 +59,7 @@
 <a class="site-logo" href="/">Freelance<span>Income</span>Calc</a>
 <nav aria-label="Main navigation" class="site-nav">
 <a href="/">Home</a>
+<a href="/about">About</a>
 <a class="active" href="/faq">FAQ</a>
 <a href="/legal">Legal</a>
 <a href="/privacy">Privacy</a>
@@ -111,36 +126,11 @@
 </div>
 </div>
 </main>
-<footer class="site-footer">
-<div class="container">
-<div class="footer-grid">
-<div class="footer-col">
-<h4>FreelanceIncomeCalc</h4>
-<p>Convert freelance hourly rates to gross income across time periods. Runs locally. No data collected.</p>
-<br/>
-<a href="/">Calculator</a>
-<a href="/faq">FAQ</a>
-<a href="/legal">Legal</a>
-<a href="/privacy">Privacy</a>
-<a href="/contact">Contact</a>
-</div>
-<div class="footer-col">
-<h4>Related Tools</h4>
-<ul class="related-tools" id="footer-network"></ul>
-</div>
-</div>
-<div class="footer-bottom">
-<span>© <span id="year"></span> FreelanceIncomeCalc.com — Gross estimates only. No tax advice.</span>
-<span>Partnerships: <a href="mailto:partnerships@calc-hq.com">partnerships@calc-hq.com</a></span>
-</div>
-<p class="footer-disclaimer">This tool provides gross income estimates for informational purposes only. It does not account for taxes, deductions, or any other financial obligations. Always verify with official sources or a qualified professional. Third-party advertisements on this site may use cookies; see our <a href="/privacy">Privacy Policy</a>.</p>
-</div>
-</footer>
-<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<div id="site-footer"></div>
 <script src="config.js"></script>
 <script src="network.js"></script>
+<script src="footer.js"></script>
 <script src="ads.js"></script>
 <script src="app.js"></script>
-<script>document.addEventListener("DOMContentLoaded",function(){renderNetworkLinks("footer-network");});</script>
 </body>
 </html>

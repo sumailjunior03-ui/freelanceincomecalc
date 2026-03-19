@@ -26,9 +26,9 @@ function fmtRate(n) {
 
 /* ── CALC ENGINE ── */
 function calcFromHourly(hourlyRate, hoursPerWeek, weeksPerYear) {
-  var weeklyGross    = hourlyRate * hoursPerWeek;
-  var annualGross    = weeklyGross * weeksPerYear;
-  var monthlyGross   = annualGross / 12;
+  var annualGross   = hourlyRate * hoursPerWeek * weeksPerYear;
+  var monthlyGross  = annualGross / 12;
+  var weeklyGross   = annualGross / 52;
   var quarterlyGross = annualGross / 4;
   return {
     hourlyRate:     hourlyRate,
@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (resetBtn) resetBtn.addEventListener("click", handleReset);
 
   // Init network links
-  if (typeof renderNetworkLinks === "function") {
-    renderNetworkLinks("footer-network-links");
+  if (typeof renderRelatedTools === "function") {
+    renderRelatedTools("related-tools");
   }
 });
