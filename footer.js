@@ -27,7 +27,7 @@
       </div>
       <div class="footer-col footer-resources">
         <h4>Resources</h4>
-        <a href="https://calc-hq.com">https://calc-hq.com</a>
+        <a href="https://calc-hq.com" target="_blank" rel="noopener">Financial Calculator Hub</a>
       </div>
     </div>
     <div class="footer-bottom">
