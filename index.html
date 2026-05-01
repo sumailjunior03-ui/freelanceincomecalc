@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -17,7 +16,7 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Freelance Income Calculator | FreelanceIncomeCalc.com"/>
 <meta name="twitter:description" content="Convert your freelance hourly rate to annual, monthly, and weekly gross income. Enter hours per week and weeks per year. Runs entirely in your browser."/>
-<link href="styles.css" rel="stylesheet"/>
+<link href="styles.css?v=layout-repair-0501" rel="stylesheet"/>
 <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7744853829365165"></script>
 <script type="application/ld+json">
 {
@@ -36,27 +35,13 @@
 <header class="site-header">
 <div class="container">
 <a class="site-logo" href="/">Freelance<span>Income</span>Calc</a>
-<nav aria-label="Main navigation" class="site-nav">
-<a class="active" href="/">Home</a>
-<a href="/about">About</a>
-<a href="/faq">FAQ</a>
-<a href="/legal">Legal</a>
-<a href="/privacy">Privacy</a>
-<a href="/contact">Contact</a>
-</nav>
+<div data-site-header-nav></div>
 </div>
 </header>
 <div class="container">
 <div aria-hidden="true" class="ad-slot ad-slot-top"></div>
 </div>
 <main>
-<section class="section">
-<div class="container">
-<h2>When This Calculator Is Useful</h2>
-<p>This calculator helps freelancers estimate income across hourly, weekly, monthly, and yearly timeframes based on typical working hours and weeks worked.</p>
-</div>
-</section>
-
 <section class="tool-hero">
 <div class="container">
 <h1>Your freelance income, <em>calculated</em></h1>
@@ -120,9 +105,7 @@
 </div>
 </form>
 </div>
-<!-- SPONSOR SLOT (hidden when inactive) -->
 <div aria-hidden="true" class="sponsor-slot"></div>
-<!-- RESULTS -->
 <section aria-live="polite" id="results" style="display:none;">
 <h2 class="results-heading">Your Gross Income Estimate</h2>
 <div class="rate-banner">
@@ -165,87 +148,103 @@
 </main>
 <div class="container">
 <section class="calculator-explanation">
-<h2>What This Calculator Does</h2>
-<p>This freelance income calculator estimates how much a freelancer may earn based on their hourly rate and number of working hours.</p>
-<p>Freelancers often need to estimate income across different time periods such as weekly, monthly, or yearly totals.</p>
-<p>This calculator helps estimate freelance earnings by multiplying hourly rates by hours worked and projecting the results over common timeframes.</p>
+<h2>What This Calculator Gives You</h2>
+<p>You charge $75/hour for design work. A client wants 20 hours a week for the next six months. Before you say yes, you need to know what that actually translates to — not just the invoice total, but the real number after business expenses come out. That's what this tool calculates.</p>
+<p>Enter your hourly rate (or annual revenue), your typical working hours, and your estimated expenses. You'll get your net freelance income broken down by week, month, quarter, and year — the number that matters when you're deciding whether a contract pays enough, how much to set aside for taxes, or whether your rate needs to go up.</p>
 </section>
 <section class="calculator-explanation">
-<h2>Example Freelance Income Calculation</h2>
-<ul>
-<li>Hourly rate: $50</li>
-<li>Hours per week: 30</li>
-<li>Weeks per year: 52</li>
-</ul>
-<p><strong>Annual gross estimate:</strong></p>
-<p>$50 × 30 × 52 = <strong>$78,000 per year</strong></p>
-<p><strong>Derived estimates:</strong></p>
-<ul>
-<li>Monthly: $78,000 ÷ 12 = <strong>$6,500</strong></li>
-<li>Weekly: $78,000 ÷ 52 = <strong>$1,500</strong></li>
-<li>Quarterly: $78,000 ÷ 4 = <strong>$19,500</strong></li>
-</ul>
-<p>This matches how the calculator computes annual income first, then derives weekly, monthly, and quarterly estimates.</p>
+<h2>The Gap Between What You Bill and What You Keep</h2>
+<p>Every dollar a client pays you is revenue on paper. But freelancers don't keep all of it. Software subscriptions ($30/month for Adobe Creative Cloud), website hosting ($15/month), professional liability insurance ($400/year), marketing, equipment, coworking space — these are legitimate business expenses, and they come off the top before the IRS calculates your tax.</p>
+<p>A freelance writer billing $80,000 might spend $12,000 on expenses, leaving $68,000 in actual profit. That $12,000 difference matters because the IRS taxes profit, not revenue. When you estimate quarterly payments or compare a 1099 offer to a W-2 salary, the net figure determines what you actually keep.</p>
 </section>
 <section class="calculator-explanation">
-<h2>Income Formula</h2>
-<h3>Hourly → Annual (gross)</h3>
-<p><strong>Annual Gross = Hourly Rate × Hours per Week × Weeks per Year</strong></p>
-<h3>Annual → Hourly</h3>
-<p><strong>Hourly Rate = Annual Gross ÷ (Hours per Week × Weeks per Year)</strong></p>
-<p>Weekly, monthly, and quarterly estimates are derived from the annual value:</p>
-<ul>
-<li><strong>Weekly = Annual ÷ 52</strong></li>
-<li><strong>Monthly = Annual ÷ 12</strong></li>
-<li><strong>Quarterly = Annual ÷ 4</strong></li>
-</ul>
+<h2>Example: $75/Hour Designer With $12,000 in Annual Expenses</h2>
+<p><strong>Inputs:</strong> $75/hour, 30 hours/week, 48 weeks/year, $12,000 annual expenses</p>
+<table class="example-table">
+<tr><th>Line Item</th><th>Calculation</th><th>Amount</th></tr>
+<tr><td>Gross annual revenue</td><td>$75 × 30 × 48</td><td>$108,000</td></tr>
+<tr><td>Annual expenses</td><td>Software, hosting, insurance, equipment</td><td>−$12,000</td></tr>
+<tr><td><strong>Net annual income</strong></td><td>$108,000 − $12,000</td><td><strong>$96,000</strong></td></tr>
+<tr><td>Net monthly</td><td>$96,000 ÷ 12</td><td>$8,000</td></tr>
+<tr><td>Net weekly</td><td>$96,000 ÷ 52</td><td>$1,846</td></tr>
+<tr><td>Net quarterly</td><td>$96,000 ÷ 4</td><td>$24,000</td></tr>
+</table>
+<p>That $96,000 is what you report on Schedule C (IRS Form 1040). It's also the starting point for calculating self-employment tax and quarterly estimated payments.</p>
 </section>
 <section class="calculator-explanation">
-<h2>Calculation Methodology</h2>
-<p>This calculator provides two calculation modes and uses the same core relationships between hourly and annual income.</p>
-<h3>Mode 1: Hourly → Annual</h3>
+<h2>How Taxes Connect to Net Income</h2>
+<p>The IRS doesn't tax your gross revenue — it taxes your profit. The chain works like this:</p>
 <ol>
-<li>The calculator multiplies the hourly rate by hours per week.</li>
-<li>It multiplies that weekly amount by weeks per year to estimate annual gross income.</li>
-<li>It then derives weekly, monthly, and quarterly estimates from the annual value (÷52, ÷12, ÷4).</li>
+<li><strong>Schedule C</strong> calculates net profit (revenue minus expenses)</li>
+<li><strong>Schedule SE</strong> applies self-employment tax to 92.35% of that profit — a built-in adjustment that approximates the employer half you don't pay</li>
+<li>You deduct half of the SE tax from your income before calculating federal income tax</li>
 </ol>
-<h3>Mode 2: Annual → Hourly</h3>
-<ol>
-<li>The calculator divides annual gross income by (hours per week × weeks per year) to estimate the hourly rate.</li>
-<li>It then derives weekly, monthly, and quarterly estimates from the annual value.</li>
-</ol>
-<p>This tool provides gross estimates only and does not account for taxes, unpaid time, business expenses, or client variability.</p>
+<p>At $96,000 net profit, your SE tax base is $88,656. Social Security (12.4%) applies up to $176,100, and Medicare (2.9%) applies to the full amount. Combined SE tax: roughly $13,564. Half of that — $6,782 — reduces your taxable income.</p>
+<p>This calculator stops at net income. For the actual quarterly tax number, use <a href="https://quarterlytaxcalc.com" target="_blank" rel="noopener">QuarterlyTaxCalc.com</a>.</p>
 </section>
 <section class="calculator-explanation">
-<h2>Common Freelance Income Scenarios</h2>
+<h2>1099 vs W-2 and Quarterly Planning</h2>
+<p><strong>Comparing offers.</strong> A company offers $90,000 as a W-2 employee or $110,000 as a 1099 contractor. The 1099 number looks bigger — but after expenses ($10,000) and the full self-employment tax burden ($14,130), you're closer to $85,870. The W-2 employee gets half their FICA covered by the employer. Run the full comparison at <a href="https://1099vsw2calc.com" target="_blank" rel="noopener">1099vsW2Calc.com</a>.</p>
+<p><strong>Planning quarterly payments.</strong> At $96,000 net profit, expect roughly $6,500 per quarter in federal tax. Income fluctuates? Recalculate each quarter — the IRS allows variable payments through Form 2210 Schedule AI.</p>
+</section>
+<section class="calculator-explanation">
+<h2>Real-World Scenarios</h2>
 <ul>
-<li>Estimating annual freelance earnings</li>
-<li>Comparing freelance hourly rates</li>
-<li>Planning project pricing</li>
-<li>Estimating contract income</li>
-<li>Budgeting freelance income</li>
+<li><strong>High revenue, high expenses.</strong> A freelance video producer bills $150,000 a year but spends $40,000 on camera equipment, editing software, studio rentals, and travel. Net income: $110,000. The expense ratio is 27% — high, but every dollar is deductible against SE tax and income tax. Without tracking expenses, this producer would overestimate their tax burden by thousands.</li>
+<li><strong>Low expenses, high profit margin.</strong> A freelance writer earning $65,000 with only $3,000 in expenses (website, subscriptions, home office deduction). Net income: $62,000. The expense ratio is just 5% — lean operation, but the full $62,000 is subject to SE tax. Fewer deductions to offset income means the tax bite feels steeper as a percentage.</li>
+<li><strong>Side hustle freelancer.</strong> A software engineer making $120,000 at a day job picks up $25,000 in freelance consulting on evenings and weekends. Expenses are minimal ($1,500 for a laptop upgrade and online tools). Net freelance income: $23,500. This side income stacks on top of W-2 wages, pushing total earnings past the Social Security wage base ($176,100) and possibly triggering higher Medicare surtaxes. The quarterly payment needs to account for W-2 withholding already in place — something this calculator doesn't model.</li>
 </ul>
+</section>
+<section class="calculator-explanation">
+<h2>How to Use These Numbers</h2>
+<p>Each timeframe answers a different question:</p>
+<ul>
+<li><strong>Weekly</strong> — is this project rate worth your time?</li>
+<li><strong>Monthly</strong> — can you cover rent, loans, and recurring bills?</li>
+<li><strong>Quarterly</strong> — how much should you set aside before each IRS deadline (April 15, June 15, September 15, January 15)?</li>
+<li><strong>Annual</strong> — are you earning more this year than last?</li>
+</ul>
+<p>The quarterly figure shown here is net income ÷ 4, not a tax estimate. To get the actual payment amount, you'll need to add SE tax and federal income tax — QuarterlyTaxCalc.com handles that.</p>
 </section>
 <section class="calculator-explanation">
 <h2>FAQ</h2>
 <h3>Does this include taxes?</h3>
-<p>No. The calculator estimates gross freelance income before taxes or expenses.</p>
+<p>No. This calculator estimates gross and net freelance income before taxes or deductions. For quarterly tax estimates, use QuarterlyTaxCalc.com.</p>
 <h3>Can freelancers work different hours each week?</h3>
-<p>Yes. The calculator uses the hours you enter as an estimate for weekly work.</p>
+<p>Yes. Enter your average weekly hours as an estimate. If hours vary significantly, recalculate when your schedule changes.</p>
 <h3>Is this a guaranteed income?</h3>
-<p>No. The calculator provides an estimate for planning purposes only.</p>
+<p>No. This is a planning estimate based on the inputs you provide. Actual income depends on client retention, payment timing, and market conditions.</p>
+<h3>Does this account for self-employment tax?</h3>
+<p>No. This tool stops at net income. Self-employment tax (15.3% on 92.35% of net profit) is calculated separately — use QuarterlyTaxCalc.com for that.</p>
+<h3>What counts as a business expense?</h3>
+<p>Software, hosting, insurance, equipment, marketing, coworking space, professional development — anything directly tied to producing your freelance income. The IRS requires these to be documented on Schedule C.</p>
 </section>
 <section class="calculator-explanation">
-<h2>Related Calculators</h2>
-<ul id="related-calculators"></ul>
+<h2>Data Sources</h2>
+<ul>
+<li><strong>Schedule C (Form 1040):</strong> Profit or Loss from Business — where freelance revenue and expenses are reported</li>
+<li><strong>Schedule SE (Form 1040):</strong> Self-Employment Tax — calculates SE tax on net profit</li>
+<li><strong>IRC §1402(a)(12):</strong> The 92.35% adjustment to net earnings for SE tax purposes</li>
+<li><strong>IRC §164(f):</strong> Deduction for 50% of self-employment tax</li>
+<li><strong>Social Security wage base:</strong> $176,100 (2025) — SSA</li>
+<li><strong>Quarterly estimated tax deadlines:</strong> Form 1040-ES, IRS Publication 505</li>
+</ul>
+</section>
+<section class="calculator-explanation">
+<h2>Limitations</h2>
+<p><strong>Gross-to-net only.</strong> Estimates net income from revenue and expenses. Does not calculate taxes, deductions, or take-home pay.</p>
+<p><strong>No state or local taxes.</strong> Federal figures only. State income tax can add 5–13% depending on where you live.</p>
+<p><strong>No tax credits.</strong> Child Tax Credit, Earned Income Credit, and other credits that reduce your actual tax bill are not included.</p>
+<p><strong>Simplified expense model.</strong> You enter a single annual expense total. The IRS requires expenses to be categorized and documented on Schedule C. This tool doesn't validate what counts as a deductible business expense.</p>
+<p><strong>No self-employment tax calculation.</strong> Use QuarterlyTaxCalc.com for quarterly tax estimates based on your net profit.</p>
+<p><strong>No W-2 withholding offset.</strong> If you have a day job with tax withholding, that withholding reduces your required quarterly payments. Not modeled here.</p>
+<p><strong>Not tax advice.</strong> Planning estimate only. Consult a tax professional for filing decisions.</p>
 </section>
 </div>
 <div id="site-footer"></div>
 <script src="config.js"></script>
 <script src="network.js"></script>
-<script src="footer.js"></script>
 <script src="ads.js"></script>
 <script src="app.js"></script>
-<script>if (typeof renderRelatedTools === "function") { renderRelatedTools("related-calculators"); }</script>
 </body>
 </html>
