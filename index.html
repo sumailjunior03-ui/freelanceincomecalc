@@ -98,6 +98,11 @@
 <span class="field-hint">Working weeks (e.g. 48 leaves 4 for vacation).</span>
 <span class="field-error" id="weeks-per-year-err" role="alert"></span>
 </div>
+<div class="field">
+<label for="annual-expenses">Annual Expenses ($)</label>
+<input autocomplete="off" class="dfmt" id="annual-expenses" inputmode="decimal" placeholder="0" type="text"/>
+<span class="field-hint">Software, hosting, insurance, equipment, etc.</span>
+</div>
 </div>
 <div class="btn-row">
 <button class="btn-primary" type="submit">Calculate →</button>
@@ -107,7 +112,7 @@
 </div>
 <div aria-hidden="true" class="sponsor-slot"></div>
 <section aria-live="polite" id="results" style="display:none;">
-<h2 class="results-heading">Your Gross Income Estimate</h2>
+<h2 class="results-heading">Your Income Estimate</h2>
 <div class="rate-banner">
 <div class="banner-col">
 <div class="rbl">Hourly Rate</div>
@@ -135,6 +140,24 @@
 <div class="s-card">
 <div class="sl">Working Hours</div>
 <div class="sv" id="out-hours">—</div>
+</div>
+<div class="s-card">
+<div class="sl">Annual Expenses</div>
+<div class="sv" id="out-expenses">—</div>
+</div>
+</div>
+<div class="summary-grid net-grid">
+<div class="banner-col">
+<div class="rbl">Net Annual</div>
+<div class="monthly-val" id="out-net-annual">—</div>
+</div>
+<div class="banner-col">
+<div class="rbl">Net Monthly</div>
+<div class="monthly-val" id="out-net-monthly">—</div>
+</div>
+<div class="s-card">
+<div class="sl">Net Weekly</div>
+<div class="sv" id="out-net-weekly">—</div>
 </div>
 </div>
 <p class="results-meta" id="out-meta"></p>

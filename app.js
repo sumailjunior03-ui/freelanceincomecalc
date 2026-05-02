@@ -4,7 +4,8 @@
 var DEFAULTS = {
   hourlyRate:    50,
   hoursPerWeek:  40,
-  weeksPerYear:  48
+  weeksPerYear:  48,
+  annualExpenses: 0
 };
 
 /* ── UTILITIES ── */
@@ -25,26 +26,36 @@ function fmtRate(n) {
 }
 
 /* ── CALC ENGINE ── */
-function calcFromHourly(hourlyRate, hoursPerWeek, weeksPerYear) {
-  var annualGross   = hourlyRate * hoursPerWeek * weeksPerYear;
-  var monthlyGross  = annualGross / 12;
-  var weeklyGross   = annualGross / 52;
+function calcFromHourly(hourlyRate, hoursPerWeek, weeksPerYear, annualExpenses) {
+  var annualGross    = hourlyRate * hoursPerWeek * weeksPerYear;
+  var monthlyGross   = annualGross / 12;
+  var weeklyGross    = annualGross / 52;
   var quarterlyGross = annualGross / 4;
+  var expenses       = Math.max(0, annualExpenses || 0);
+  var annualNet      = annualGross - expenses;
+  var monthlyNet     = annualNet / 12;
+  var weeklyNet      = annualNet / 52;
+  var quarterlyNet   = annualNet / 4;
   return {
-    hourlyRate:     hourlyRate,
-    hoursPerWeek:   hoursPerWeek,
-    weeksPerYear:   weeksPerYear,
-    annualGross:    annualGross,
-    monthlyGross:   monthlyGross,
-    weeklyGross:    weeklyGross,
-    quarterlyGross: quarterlyGross
+    hourlyRate:      hourlyRate,
+    hoursPerWeek:    hoursPerWeek,
+    weeksPerYear:    weeksPerYear,
+    annualGross:     annualGross,
+    monthlyGross:    monthlyGross,
+    weeklyGross:     weeklyGross,
+    quarterlyGross:  quarterlyGross,
+    annualExpenses:  expenses,
+    annualNet:       annualNet,
+    monthlyNet:      monthlyNet,
+    weeklyNet:       weeklyNet,
+    quarterlyNet:    quarterlyNet
   };
 }
 
-function calcFromAnnual(annualGross, hoursPerWeek, weeksPerYear) {
-  var totalHours = hoursPerWeek * weeksPerYear;
-  var hourlyRate = totalHours > 0 ? annualGross / totalHours : 0;
-  return calcFromHourly(hourlyRate, hoursPerWeek, weeksPerYear);
+function calcFromAnnual(annualGross, hoursPerWeek, weeksPerYear, annualExpenses) {
+  var totalHours  = hoursPerWeek * weeksPerYear;
+  var hourlyRate  = totalHours > 0 ? annualGross / totalHours : 0;
+  return calcFromHourly(hourlyRate, hoursPerWeek, weeksPerYear, annualExpenses);
 }
 
 /* ── VALIDATION ── */
@@ -78,12 +89,16 @@ function renderResults(r) {
     if (el) el.textContent = val;
   }
 
-  set("out-hourly",    fmtRate(r.hourlyRate));
-  set("out-annual",    fmtUSD(r.annualGross));
-  set("out-monthly",   fmtUSD(r.monthlyGross));
-  set("out-weekly",    fmtUSD(r.weeklyGross));
-  set("out-quarterly", fmtUSD(r.quarterlyGross));
-  set("out-hours",     r.hoursPerWeek + " hrs/wk × " + r.weeksPerYear + " wks");
+  set("out-hourly",      fmtRate(r.hourlyRate));
+  set("out-annual",      fmtUSD(r.annualGross));
+  set("out-monthly",     fmtUSD(r.monthlyGross));
+  set("out-weekly",      fmtUSD(r.weeklyGross));
+  set("out-quarterly",   fmtUSD(r.quarterlyGross));
+  set("out-hours",       r.hoursPerWeek + " hrs/wk × " + r.weeksPerYear + " wks");
+  set("out-expenses",    fmtUSD(r.annualExpenses));
+  set("out-net-annual",  fmtUSD(r.annualNet));
+  set("out-net-monthly", fmtUSD(r.monthlyNet));
+  set("out-net-weekly",  fmtUSD(r.weeklyNet));
 
   setTimeout(function () {
     sec.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -101,8 +116,12 @@ function buildSummaryText(r) {
     "Monthly Gross:       " + fmtUSD(r.monthlyGross),
     "Weekly Gross:        " + fmtUSD(r.weeklyGross),
     "Est. Quarterly:      " + fmtUSD(r.quarterlyGross),
+    "Annual Expenses:     " + fmtUSD(r.annualExpenses),
+    "Annual Net:          " + fmtUSD(r.annualNet),
+    "Monthly Net:         " + fmtUSD(r.monthlyNet),
+    "Weekly Net:          " + fmtUSD(r.weeklyNet),
     "---",
-    "Gross estimates only. No taxes or deductions applied.",
+    "Net = Gross minus expenses. No taxes or deductions applied.",
     "FreelanceIncomeCalc.com"
   ].join("\n");
 }
@@ -118,7 +137,6 @@ function attachCopy(r) {
         setTimeout(function () { btn.textContent = "Copy Result"; }, 2000);
       });
     } else {
-      // Fallback
       var ta = document.createElement("textarea");
       ta.value = text;
       ta.style.position = "fixed";
@@ -142,6 +160,7 @@ function handleSubmit(e) {
   var modeVal   = mode ? mode.value : "hourly";
   var hpw       = parseNum($("hours-per-week") ? $("hours-per-week").value : "", NaN);
   var wpy       = parseNum($("weeks-per-year") ? $("weeks-per-year").value : "", NaN);
+  var expenses  = parseNum($("annual-expenses") ? $("annual-expenses").value : "", 0);
   var valid     = true;
 
   if (isNaN(hpw) || hpw <= 0 || hpw > 168) {
@@ -162,7 +181,7 @@ function handleSubmit(e) {
       valid = false;
     }
     if (!valid) return;
-    result = calcFromHourly(hr, hpw, wpy);
+    result = calcFromHourly(hr, hpw, wpy, expenses);
   } else {
     var ag = parseNum($("annual-gross") ? $("annual-gross").value : "", NaN);
     if (isNaN(ag) || ag <= 0) {
@@ -170,7 +189,7 @@ function handleSubmit(e) {
       valid = false;
     }
     if (!valid) return;
-    result = calcFromAnnual(ag, hpw, wpy);
+    result = calcFromAnnual(ag, hpw, wpy, expenses);
   }
 
   renderResults(result);
@@ -228,6 +247,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var hr  = $("hourly-rate");    if (hr)  hr.value  = DEFAULTS.hourlyRate;
   var hpw = $("hours-per-week"); if (hpw) hpw.value = DEFAULTS.hoursPerWeek;
   var wpy = $("weeks-per-year"); if (wpy) wpy.value = DEFAULTS.weeksPerYear;
+  var exp = $("annual-expenses"); if (exp) exp.value = DEFAULTS.annualExpenses;
 
   var form = $("calc-form");
   if (form) form.addEventListener("submit", handleSubmit);
